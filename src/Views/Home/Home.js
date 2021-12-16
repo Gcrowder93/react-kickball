@@ -5,7 +5,9 @@ export default function Home() {
   return (
     <div className="Home">
       <h1>Welcome to the Kickball League!</h1>
-      <p>Find a team(link) or player(link)</p>
+      <p>
+        Search for a <Link to={'/teams'}>Team</Link> or a <Link to={'/players'}>Player</Link>.
+      </p>
     </div>
   );
 }

@@ -2,6 +2,8 @@ import kickball from './kickball.jpeg';
 import './App.css';
 import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
 import Home from './Views/Home/Home';
+import Teams from './Components/TeamFunction/Teams';
+import Players from './Components/PlayerFunction/Players';
 
 function App() {
   return (
@@ -12,18 +14,18 @@ function App() {
         {/* <NavLink to="/" exact>
           Home
         </NavLink> */}
-        <br></br>
-        <NavLink to="/teams">Teams</NavLink>
-        <br></br>
-        <br></br>
-        <NavLink to="/players">Players</NavLink>
+        {/* <NavLink to="/teams">Teams</NavLink> */}
+        {/* <NavLink to="/players">Players</NavLink> */}
         <Switch>
-          <Route path="/">
-            {' '}
-            <Home />{' '}
+          <Route path="/" exact>
+            <Home />
           </Route>
-          {/* <Route path="/teams"><Teams /></Route> */}
-          {/* <Route path="/players"><Players /></Route> */}
+          <Route path="/teams">
+            <Teams />
+          </Route>
+          <Route path="/players">
+            <Players />
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { fetchPlayers } from '../../services/players-routes';
+import { fetchTeams } from '../../services/teams-routes';
 
-export default function PlayerList() {
+export default function TeamList() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await fetchPlayers();
+      const data = await fetchTeams();
       setData(data);
     };
     fetchData();
@@ -14,7 +14,7 @@ export default function PlayerList() {
 
   return (
     <div>
-      <PlayerList Players={data} />
+      <TeamList Teams={data} />
     </div>
   );
 }
