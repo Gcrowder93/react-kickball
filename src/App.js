@@ -3,7 +3,8 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Views/Home/Home';
 // import Teams from './Components/TeamFunction/Teams';
 import TeamList from './Views/Teams/TeamList';
-import Players from './Components/PlayerFunction/Players';
+import PlayerList from './Views/Players/PlayerList';
+// import Players from './Components/PlayerFunction/Players';
 
 function App() {
   return (
@@ -20,8 +21,11 @@ function App() {
           <Route path="/teams">
             <TeamList />
           </Route>
+          <Route path="/players:id">
+            <PlayerList />
+          </Route>
           <Route path="/players">
-            <Players />
+            <PlayerList />
           </Route>
         </Switch>
       </BrowserRouter>
