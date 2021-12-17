@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { fetchPlayers } from '../../services/players-routes';
 import { Link } from 'react-router-dom';
+import Players from '../../Components/PlayerFunction/Players';
 
 export default function PlayerList() {
   const [players, setPlayers] = useState([]);
@@ -19,14 +20,13 @@ export default function PlayerList() {
       <p>
         Back to <Link to={'/'}>Home</Link> or to <Link to={'/teams'}>Teams</Link>.
       </p>
-      <ul className="player-list">
+      <div className="player-list">
         {players.map((player) => (
-          <Link key={player.id} to={`/players/${player.id}`}>
-            {player.name}
-            <br></br>
-          </Link>
+          <p key={player.id}>
+            <Players players={player} />
+          </p>
         ))}
-      </ul>
+      </div>
     </>
   );
 }

@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { fetchTeams } from '../../services/teams-routes';
+import Teams from '../../Components/TeamFunction/Teams';
 import { Link } from 'react-router-dom';
-
-// import Teams from '../../Components/TeamFunction/Teams';
 
 export default function TeamList() {
   const [teams, setTeams] = useState([]);
@@ -18,19 +17,20 @@ export default function TeamList() {
 
   return (
     <>
-      <h1>Team Names</h1>
-      <p>
-        Back to <Link to={'/'}>Home</Link> or to <Link to={'/players'}>Players</Link>.
-      </p>
+      <div>
+        <h1>Team Names</h1>
+        <p>
+          Back to <Link to={'/'}>Home</Link> or to <Link to={'/players'}>Players</Link>.
+        </p>
 
-      <ul className="team-list">
-        {teams.map((team) => (
-          <Link key={team.id} to={`/teams/${team.id}`}>
-            {team.name}
-            <br></br>
-          </Link>
-        ))}
-      </ul>
+        <div className="team-list">
+          {teams.map((team) => (
+            <p key={team.id}>
+              <Teams teams={team} />
+            </p>
+          ))}
+        </div>
+      </div>
     </>
   );
 }

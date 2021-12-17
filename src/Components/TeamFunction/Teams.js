@@ -1,14 +1,17 @@
-import client from './client';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-export async function getTeams(query) {
-  let request = client.from('teams').select(`*, names (*)`).order('teams').limit(100);
-  if (query) {
-    request = request.ilike('names', `%${query}%`);
-  }
-
-  return request;
-}
-
-export async function getTeamById(id) {
-  return client.from('teams').select(`*, names (*)`).match({ team_id: id }).single();
+export default function Teams({ teams: { id, name, city, state } }) {
+  return (
+    <section>
+      <Link className="teamdetails" to={`/teams/${id}`}>
+        <h1>{name}</h1>
+      </Link>
+      <div className="content">
+        <h3>
+          {city}, {state}
+        </h3>
+      </div>
+    </section>
+  );
 }
