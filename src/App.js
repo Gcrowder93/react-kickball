@@ -1,7 +1,8 @@
 import './App.css';
-import { BrowserRouter, Switch, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from './Views/Home/Home';
-import Teams from './Components/TeamFunction/Teams';
+// import Teams from './Components/TeamFunction/Teams';
+import TeamList from './Views/Teams/TeamList';
 import Players from './Components/PlayerFunction/Players';
 
 function App() {
@@ -9,17 +10,15 @@ function App() {
     <div className="App">
       <header className="App-header"></header>
       <BrowserRouter>
-        {/* <NavLink to="/" exact>
-          Home
-        </NavLink> */}
-        {/* <NavLink to="/teams">Teams</NavLink> */}
-        {/* <NavLink to="/players">Players</NavLink> */}
         <Switch>
           <Route path="/" exact>
             <Home />
           </Route>
+          <Route path="/teams:id">
+            <TeamList />
+          </Route>
           <Route path="/teams">
-            <Teams />
+            <TeamList />
           </Route>
           <Route path="/players">
             <Players />

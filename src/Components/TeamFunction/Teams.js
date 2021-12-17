@@ -1,4 +1,4 @@
-import React from 'react'; //Deleting this makes clicking the link a new page
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function Teams() {

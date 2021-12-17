@@ -1,20 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import { fetchPlayers } from '../../services/players-routes';
+// import React, { useEffect, useState } from 'react';
+// import { fetchPlayers } from '../../services/players-routes';
 
-export default function PlayerList() {
-  const [data, setData] = useState([]);
+// export default function PlayerList() {
+//   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await fetchPlayers();
-      setData(data);
-    };
-    fetchData();
-  }, []);
+//   useEffect(() => {
+//     const fetchData = async () => {
+//       const data = await fetchPlayers();
+//       setData(data);
+//     };
+//     fetchData();
+//   }, []);
 
-  return (
-    <div>
-      <PlayerList Players={data} />
-    </div>
-  );
-}
+//   return (
+//     <div>
+//       <PlayerList Players={data} />
+//     </div>
+//   );
+// }
