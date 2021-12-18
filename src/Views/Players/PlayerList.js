@@ -16,16 +16,20 @@ export default function PlayerList() {
 
   return (
     <>
-      <h1>Player Names</h1>
-      <p>
-        Back to <Link to={'/'}>Home</Link> or to <Link to={'/teams'}>Teams</Link>.
-      </p>
-      <div className="player-list">
-        {players.map((player) => (
-          <p key={player.id}>
-            <Players players={player} />
-          </p>
-        ))}
+      <div>
+        <h1>Player Names</h1>
+        <p>
+          Back to <Link to={'/'}>Home</Link> or to <Link to={'/teams'}>Teams</Link>.
+        </p>
+        <div className="player-list">
+          {players.map((player) => (
+            <Link to={`/players/${player.id}`} key={player.id}>
+              <br></br>
+              {player.name}
+              <Players players={player} />
+            </Link>
+          ))}
+        </div>
       </div>
     </>
   );

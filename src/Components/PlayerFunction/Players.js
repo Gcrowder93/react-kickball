@@ -4,12 +4,10 @@ import { Link } from 'react-router-dom';
 export default function Players({ players: { name, id, position, team_id } }) {
   return (
     <section>
-      <Link className="playerdetails" to={`/players/${id}`}>
-        <h1>{name}</h1>
-      </Link>
-      <div className="content">
-        <h3>{position}</h3>
-      </div>
+      {/* <Link className="playerdetails" to={`/players/${id}`}> */}
+      {/* <h1>{name}</h1> */}
+      {/* </Link> */}
+      <div className="content">{/* <h3>{position}</h3> */}</div>
     </section>
   );
 }

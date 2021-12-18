@@ -25,9 +25,10 @@ export default function TeamList() {
 
         <div className="team-list">
           {teams.map((team) => (
-            <p key={team.id}>
+            <Link to={`/teams/${team.id}`} key={team.id}>
+              {team.name}
               <Teams teams={team} />
-            </p>
+            </Link>
           ))}
         </div>
       </div>
