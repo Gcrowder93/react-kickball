@@ -5,34 +5,34 @@ import { Link } from 'react-router-dom';
 
 export default function TeamList() {
   const [teams, setTeams] = useState([]);
-  // const [city, setCity] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       const teamData = await fetchTeams();
       setTeams(teamData);
-      // setCity(teamData);
+      setLoading(false);
     };
-
     fetchData();
   }, []);
-
+  if (loading) return <h1>loading</h1>;
   return (
     <>
       <div>
         <h1>Team Names</h1>
-        <p>
+        <div>
           Back to <Link to={'/'}>Home</Link> or to <Link to={'/players'}>Players</Link>.
-        </p>
-
-        <div className="team-list">
-          {teams.map((team) => (
-            <Link to={`/teams/${team.id}`} key={team.id}>
-              {team.name}
-              <Teams teams={team} />
-            </Link>
-          ))}
         </div>
+
+        {
+          <div className="team-list">
+            {teams.map((team) => (
+              <Link to={`/teams/${team.id}`} key={team.id}>
+                <Teams {...team} />
+              </Link>
+            ))}
+          </div>
+        }
       </div>
     </>
   );

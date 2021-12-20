@@ -2,7 +2,6 @@ import { client, checkError } from './client';
 
 export async function fetchTeams() {
   let request = await client.from('teams').select().order('name');
-
   return checkError(request);
 }
 
