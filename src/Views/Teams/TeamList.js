@@ -5,11 +5,13 @@ import { Link } from 'react-router-dom';
 
 export default function TeamList() {
   const [teams, setTeams] = useState([]);
+  // const [city, setCity] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       const teamData = await fetchTeams();
       setTeams(teamData);
+      // setCity(teamData);
     };
 
     fetchData();
