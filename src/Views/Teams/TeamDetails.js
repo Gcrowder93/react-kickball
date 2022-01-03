@@ -13,18 +13,22 @@ export default function TeamsDetails() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    getTeamById(id).then(({ data }) => {
-      setTeams(data);
+    const fetchPlayers = async () => {
+      const data = await getTeamById(id);
+      setTeams(data.data);
       setLoading(false);
-    });
+    };
+    fetchPlayers();
+    // getTeamById(id).then(({ data }) => {
+    // });
   }, [id]);
 
   useEffect(() => {
     getPlayerById(id).then(({ data }) => {
       setPlayers(data);
-      setLoading(false);
+      // setLoading(false);
     });
-    console.log(players);
+    // console.log(players);
   }, [id]);
 
   if (loading) return <h1>loading</h1>;
