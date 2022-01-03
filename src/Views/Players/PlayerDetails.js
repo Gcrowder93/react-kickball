@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export default function TeamsDetails() {
   const { id } = useParams();
   const [players, setPlayers] = useState([]);
+  // const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
